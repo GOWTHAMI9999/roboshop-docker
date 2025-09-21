@@ -1,0 +1,38 @@
+networks:
+  default:
+  driver: bridge
+  name: roboshop 
+services:
+  mongodb: 
+    image: gowthamireddy7/mongodb:v1
+    container_name: mongodb
+  catalogue:
+    image:  gowthamireddy7/catalogue:v1
+    container_name: catalogue
+    depends_on:
+      - mongodb
+
+  redis:
+    image: redis:7.0
+    container_name: redis
+  user:
+    image: gowthamireddy7/user:v1
+    container_name: user
+    depends_on:
+    - redis
+    - mongodb
+  cart:
+    image: gowthamireddy7/cart:v1
+    container_name: cart
+    depends_on:
+      - catalogue
+      - redis
+  mysql:
+    image: gowthamireddy7/mysql:v1
+    container_name: mysql
+  shipping:
+    image: gowthamireddy7/shipping:v1
+    container_name: shipping
+    depends_on:
+      - mysql
+      - cart
