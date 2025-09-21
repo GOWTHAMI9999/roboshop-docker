@@ -6,7 +6,7 @@ WORKDIR /opt/server
 COPY package.json . 
 RUN npm install
 # Copy JS files
-COPY *.js .
+COPY *.js .s
 # Set environment variables
 ENV MONGO="true" \
     REDIS_URL='redis://redis:6379' \
