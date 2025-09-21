@@ -35,8 +35,7 @@ services:
   mysql:
     image: gowthamireddy7/mysql:v1
     container_name: mysql
-    volumes:
-    - mysql:/var/lib/mysql
+    
   shipping:
     image: gowthamireddy7/shipping:v1
     container_name: shipping
