@@ -8,8 +8,7 @@ services:
   mongodb:
     image: gowthamireddy7/mongodb:v1
     container_name: mongodb
-    volumes:
-    - mongodb:/data/db
+    
   catalogue:
     image: gowthamireddy7/catalogue:v1
     container_name: catalogue
